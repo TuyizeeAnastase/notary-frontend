@@ -1,0 +1,61 @@
+// styles/ServiceCard.scss
+@import './variables';
+
+.service-card {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: $card-shadow;
+  margin: 20px 0;
+
+  &__image {
+    flex: 1;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__content {
+    flex: 2;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h3 {
+      font-family: $font-stack;
+      margin-bottom: 20px;
+    }
+
+    &__buttons {
+      display: flex;
+      gap: 10px;
+
+      button {
+        flex: 1;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        font-family: $font-stack;
+        cursor: pointer;
+
+        &:first-child {
+          background-color: $primary-color;
+          color: #fff;
+        }
+
+        &:last-child {
+          background-color: $secondary-color;
+          color: #fff;
+        }
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}

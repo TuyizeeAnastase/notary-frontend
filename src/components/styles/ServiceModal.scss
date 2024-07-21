@@ -1,0 +1,44 @@
+// styles/ServiceModal.scss
+@import './variables';
+
+.service-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: $card-shadow;
+
+    h2 {
+      font-family: $font-stack;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-family: $font-stack;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: $primary-color;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}

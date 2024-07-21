@@ -1,0 +1,38 @@
+// styles/AboutUs.scss
+@import './variables';
+
+.about-us {
+  display: flex;
+  flex-direction: row;
+  padding: 40px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: $card-shadow;
+  margin: 20px 0;
+
+  &__content {
+    flex: 1;
+    padding-right: 20px;
+
+    h2 {
+      margin-bottom: 20px;
+      color: $primary-color;
+    }
+
+    p {
+      margin-bottom: 20px;
+      font-family: $font-stack;
+      line-height: 1.6;
+    }
+  }
+
+  &__image {
+    flex: 1;
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+  }
+}

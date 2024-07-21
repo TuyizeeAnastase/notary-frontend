@@ -1,0 +1,19 @@
+// styles/App.scss
+@import './variables';
+
+.app {
+  padding: 40px;
+  font-family: $font-stack;
+  text-align: center;
+
+  h1 {
+    margin-bottom: 40px;
+    color: $primary-color;
+  }
+
+  .services-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}
