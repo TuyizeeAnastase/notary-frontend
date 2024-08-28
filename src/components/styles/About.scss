@@ -1,4 +1,3 @@
-// styles/AboutUs.scss
 @import './variables';
 
 .about-us {
@@ -13,6 +12,7 @@
   &__content {
     flex: 1;
     padding-right: 20px;
+    max-width: 60%; /* Reduce the content width */
 
     h2 {
       margin-bottom: 20px;
@@ -23,16 +23,30 @@
       margin-bottom: 20px;
       font-family: $font-stack;
       line-height: 1.6;
+      color: black;
     }
   }
 
   &__image {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
+      width: 200px; /* Increase the image size */
+      height: 200px; /* Ensure the image stays circular */
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 10px;
+    }
+
+    .company-name {
+      font-family: $font-stack;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: $primary-color;
     }
   }
 }

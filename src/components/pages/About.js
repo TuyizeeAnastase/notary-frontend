@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/About.scss';
-import companyLogo from '../../images/land.jpg'
+import companyLogo from '../../images/fidelis.jpg'
 
 const About = () => {
   return (
@@ -12,6 +12,7 @@ const About = () => {
       </div>
       <div className="about-us__image">
         <img src={companyLogo} alt="About Us" />
+        <div className="company-name">Our Company</div>
       </div>
     </div>
   );

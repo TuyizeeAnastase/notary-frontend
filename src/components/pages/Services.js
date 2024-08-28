@@ -1,26 +1,29 @@
 import React, { useState } from 'react';
 import ServiceCard from './ServicesCard';
 import ServiceModal from './ServiceModal';
+import BookServiceModel from './BookService';
 import '../styles/services.scss'
+
+
 
 
 const services = [
     {
       id: 1,
-      image: require('../../images/land.jpg').default,
-      title: 'Service One',
+      image: 'service2.jpg',
+      title: 'AMASEZERANO Y’UBUKODE BW’INZU Y’UBUCURUZI',
       description: 'Description of Service One.'
     },
     {
       id: 2,
       image: 'service2.jpg',
-      title: 'Service Two',
+      title: 'SALES AND MARKETING REPRESENTATIVE AGREEMENT',
       description: 'Description of Service Two.'
     },
     {
         id: 3,
         image: 'service2.jpg',
-        title: 'Service Three',
+        title: 'AMASEZERANO Y’UBUFASHA MU BIJYANYE N’AMATEGEKO',
         description: 'Description of Service Two.'
       },
       {
@@ -89,13 +92,15 @@ const services = [
 
 const Services=()=>{
     const [selectedService, setSelectedService] = useState(null);
+    const [bookService,setBookService]=useState(null)
 
   const handleDetailsClick = (service) => {
     setSelectedService(service);
   };
 
   const handleBookClick = (service) => {
-    // Implement navigation to service details page
+    setBookService(service)
+    console.log(bookService)
   };
 
   const handleCloseModal = () => {
@@ -116,6 +121,9 @@ const Services=()=>{
         </div>
         {selectedService && (
           <ServiceModal service={selectedService} onClose={handleCloseModal} />
+        )}
+        {bookService && (
+          <BookServiceModel service={selectedService} onClose={handleCloseModal} />
         )}
       </div>
     )

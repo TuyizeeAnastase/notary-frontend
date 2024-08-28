@@ -4,8 +4,9 @@ $background-color: #343a40;
 $text-color: #fff;
 $font-family: 'Arial, sans-serif';
 
+@import './variables';
+
 .footer {
-  background-color: $background-color;
   color: $text-color;
   padding: 40px 20px;
   font-family: $font-family;
@@ -23,11 +24,12 @@ $font-family: 'Arial, sans-serif';
       h2 {
         margin-bottom: 15px;
         font-size: 1.5em;
-        color: $primary-color;
+        color: #eee;
       }
 
       p {
         line-height: 1.6;
+        color: #eee;
       }
 
       ul {
@@ -38,7 +40,7 @@ $font-family: 'Arial, sans-serif';
           margin-bottom: 10px;
 
           a {
-            color: $text-color;
+            color: #eee;
             text-decoration: none;
 
             &:hover {
@@ -96,6 +98,7 @@ $font-family: 'Arial, sans-serif';
 
     p {
       margin: 0;
+      color: #eee;
     }
   }
 }
