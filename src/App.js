@@ -5,6 +5,7 @@ import "./App.css"
  import Home from './components/pages/Home';
  import Contact from './components/pages/Contact';
  import About from './components/pages/About';
+ import BookingForm from './components/pages/BookingForm';
 
  const App=()=>{
   return (
@@ -12,9 +13,10 @@ import "./App.css"
     <Navbar/>
     <main className='main-content'>
     <Routes>
-          <Route path="/" element={<Home />} />
+          <Route exact path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
+          <Route path="/book/:id" element={<BookingForm />} />
         </Routes>
     </main>
     </Router>

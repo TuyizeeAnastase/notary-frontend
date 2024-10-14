@@ -1,111 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import ServiceCard from './ServicesCard';
 import ServiceModal from './ServiceModal';
 import BookServiceModel from './BookService';
 import '../styles/services.scss'
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-
-
-
-const services = [
-    {
-      id: 1,
-      image: 'service2.jpg',
-      title: 'AMASEZERANO Y’UBUKODE BW’INZU Y’UBUCURUZI',
-      description: 'Description of Service One.'
-    },
-    {
-      id: 2,
-      image: 'service2.jpg',
-      title: 'SALES AND MARKETING REPRESENTATIVE AGREEMENT',
-      description: 'Description of Service Two.'
-    },
-    {
-        id: 3,
-        image: 'service2.jpg',
-        title: 'AMASEZERANO Y’UBUFASHA MU BIJYANYE N’AMATEGEKO',
-        description: 'Description of Service Two.'
-      },
-      {
-        id: 4,
-        image: 'service2.jpg',
-        title: 'Service four',
-        description: 'Description of Service Two.'
-      },
-      {
-        id: 5,
-        image: 'service2.jpg',
-        title: 'Service five',
-        description: 'Description of Service Two.'
-      },
-      {
-        id: 6,
-        image: 'service2.jpg',
-        title: 'Service six',
-        description: 'Description of Service Two.'
-      },
-      {
-        id: 7,
-        image: 'service2.jpg',
-        title: 'Service seven',
-        description: 'Description of Service Two.'
-      },
-      {
-        id: 8,
-        image: 'service2.jpg',
-        title: 'Service eight',
-        description: 'Description of Service Two.'
-      },
-      {
-        id: 9,
-        image: 'service2.jpg',
-        title: 'Service nine',
-        description: 'Description of Service Two.'
-      },
-      {
-        id: 10,
-        image: 'service2.jpg',
-        title: 'Service Ten',
-        description: 'Description of Service Two.'
-      },
-      {
-        id: 11,
-        image: 'service2.jpg',
-        title: 'Service Elven',
-        description: 'Description of Service Two.'
-      },
-      {
-        id: 12,
-        image: 'service2.jpg',
-        title: 'Service Tueleve',
-        description: 'Description of Service Two.'
-      },
-      {
-        id: 13,
-        image: 'service2.jpg',
-        title: 'Service Thirteen',
-        description: 'Description of Service Two.'
-      },
-      
-  ];
 
 
 const Services=()=>{
-    const [selectedService, setSelectedService] = useState(null);
-    const [bookService,setBookService]=useState(null)
+    const [services, setServices] = useState([]);
+   const [selectedService, setSelectedService] = useState(null);
+  const [bookService, setBookService] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const response = await axios.get('http://localhost:3500/api/v1/services');
+        setServices(response.data.services.rows); // Assuming the response contains the services in a `services` array
+        setLoading(false);
+      } catch (err) {
+        console.error('Error fetching services:', err);
+        setError('Failed to load services');
+        setLoading(false);
+      }
+    };
+
+    fetchServices();
+  }, []);
 
   const handleDetailsClick = (service) => {
     setSelectedService(service);
   };
 
-  const handleBookClick = (service) => {
-    setBookService(service)
-    console.log(bookService)
+  const handleBookClick = (id) => {
+    navigate(`/book/${id}`);
   };
 
   const handleCloseModal = () => {
     setSelectedService(null);
   };
+
+
+
     return (
         <div className="app">
         <h1>Our Services</h1>
@@ -115,7 +56,8 @@ const Services=()=>{
               key={service.id}
               service={service}
               onDetailsClick={handleDetailsClick}
-              onBookClick={handleBookClick}
+              // onBookClick={handleBookClick(service.id)}
+              onBookClick={() => handleBookClick(service.id)} 
             />
           ))}
         </div>

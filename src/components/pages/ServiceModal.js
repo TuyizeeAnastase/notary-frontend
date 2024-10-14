@@ -3,7 +3,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/ServiceModal.scss';
 
+
 const ServiceModal = ({ service, onClose }) => {
+
+
   return (
     <div className="service-modal">
       <div className="service-modal__content">
